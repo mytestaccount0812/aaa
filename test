@@ -76,8 +76,8 @@ var init = () => {
 
    {
         c3Exp = theory.createMilestoneUpgrade(2, 3);
-        c3Exp.description = Localization.getUpgradeIncCustomExpDesc("c_2", "5");
-        c3Exp.info = Localization.getUpgradeIncCustomExpInfo("c_2", "5");
+        c3Exp.description = Localization.getUpgradeIncCustomExpDesc("c_3", "5");
+        c3Exp.info = Localization.getUpgradeIncCustomExpInfo("c_3", "5");
         c3Exp.boughtOrRefunded = (_) => theory.invalidatePrimaryEquation();
     }
 
@@ -102,7 +102,8 @@ var tick = (elapsedTime, multiplier) => {
     let dt = BigNumber.from(elapsedTime * multiplier);
     let bonus = theory.publicationMultiplier;
     currency.value += dt * bonus * getC1(c1.level).pow(getC1Exponent(c1Exp.level)) *
-                                   getC2(c2.level).pow(getC2Exponent(c2Exp.level));
+                                   getC2(c2.level).pow(getC2Exponent(c2Exp.level)) *
+　　　　　　　　　　　　　　　　　　　　　　　getC2(c2.level).pow(getC2Exponent(c2Exp.level)) ;
 }
 
 var getPrimaryEquation = () => {
@@ -118,6 +119,11 @@ var getPrimaryEquation = () => {
     if (c2Exp.level == 2) result += "^{1.1}";
     if (c2Exp.level == 3) result += "^{1.15}";
 
+    result += "c_3";
+
+    if (c3Exp.level == 1) result += "^{5}";
+    if (c3Exp.level == 2) result += "^{10}";
+    if (c3Exp.level == 3) result += "^{15}";
     return result;
 }
 
