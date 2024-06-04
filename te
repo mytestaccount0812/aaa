@@ -44,7 +44,7 @@ var init = () => {
     // Permanent Upgrades
     theory.createPublicationUpgrade(0, currency, 1e2);
     theory.createBuyAllUpgrade(1, currency, 1e13);
-    theory.createAutoBuyerUpgrade(2, currency, 1e30);
+    theory.createAutoBuyerUpgrade(2, currency, 1e3);
 
     ///////////////////////
     //// Milestone Upgrades
