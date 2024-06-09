@@ -70,15 +70,15 @@ var init = () => {
   // tvar
   {
     let getDesc = (level) => "\\dot{t}=" + getTdot(level).toString(1);
-    tvar = theory.createUpgrade(0, currency, new ExponentialCost(1e4, Math.log2(9e3)));
+    tvar = theory.createUpgrade(0, currency, new ExponentialCost(1e4, Math.log2(9e2)));
     tvar.getDescription = (_) => Utils.getMath(getDesc(tvar.level));
     tvar.getInfo = (amount) => Utils.getMathTo(getDesc(tvar.level), getDesc(tvar.level + amount));
-    tvar.maxLevel = 4;
+    tvar.maxLevel = 10000;
   }
   // c1
   {
     let getDesc = (level) => "c_1=" + getC1(level).toString(0);
-    c1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(10, Math.log2(1.25))));
+    c1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(10, Math.log2(1.125))));
     c1.getDescription = (_) => Utils.getMath(getDesc(c1.level));
     c1.getInfo = (amount) => Utils.getMathTo(getDesc(c1.level), getDesc(c1.level + amount));
   }
@@ -123,7 +123,7 @@ var init = () => {
   {
     let getDesc = (level) => "n=" + getN1(level).toString(0);
     let getInfo = (level) => "n=" + getN1(level).toString(0);
-    n1 = theory.createUpgrade(6, currency, new ExponentialCost(1e4, Math.log2(2.5e6)));
+    n1 = theory.createUpgrade(6, currency, new ExponentialCost(1e4, Math.log2(1e6)));
     n1.getDescription = (_) => Utils.getMath(getDesc(n1.level));
     n1.getInfo = (amount) => Utils.getMathTo(getInfo(n1.level), getInfo(n1.level + amount));
     n1.bought = (_) => (updateN_flag = true);
