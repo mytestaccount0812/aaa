@@ -70,14 +70,14 @@ var init = () => {
   // tvar
   {
     let getDesc = (level) => "\\dot{t}=" + getTdot(level).toString(1);
-    tvar = theory.createUpgrade(0, currency, new ExponentialCost(1e4, Math.log2(1e4)));
+    tvar = theory.createUpgrade(0, currency, new ExponentialCost(1e2, Math.log2(1e4)));
     tvar.getDescription = (_) => Utils.getMath(getDesc(tvar.level));
     tvar.getInfo = (amount) => Utils.getMathTo(getDesc(tvar.level), getDesc(tvar.level + amount));
   }
   // c1
   {
     let getDesc = (level) => "c_1=" + getC1(level).toString(0);
-    c1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(2, Math.log2(1.4))));
+    c1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(2, Math.log2(1.3))));
     c1.getDescription = (_) => Utils.getMath(getDesc(c1.level));
     c1.getInfo = (amount) => Utils.getMathTo(getDesc(c1.level), getDesc(c1.level + amount));
   }
