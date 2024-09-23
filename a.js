@@ -1,4 +1,4 @@
-　import { ExponentialCost, FirstFreeCost } from "../api/Costs";
+import { ExponentialCost, FirstFreeCost } from "../api/Costs";
 import { Localization } from "../api/Localization";
 import { parseBigNumber, BigNumber } from "../api/BigNumber";
 import { theory } from "../api/Theory";
