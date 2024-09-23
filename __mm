@@ -98,7 +98,7 @@ var init = () => {
 }
 
 var updateAvailability = () => {
-    Unlock1.is Available = Lemma.level == 0 && Unlock1.level < 1;
+    Unlock1.isAvailable = Lemma.level == 0 && Unlock1.level < 1;
     Unlock2.isAvailable = Lemma.level == 0 && Unlock1.level > 0 && Unlock2.level < 1;
     Unlock3.isAvailable = Lemma.level == 0 && Unlock2.level > 0 && Unlock3.level < 1;
     
