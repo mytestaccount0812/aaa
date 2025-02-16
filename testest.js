@@ -110,11 +110,11 @@ const constants = [
     },
 ];
 const c = 299_792_458; // m/s
-const c1expval = .035;
+const c1expval = 0.035;
 const c1MaxLvl = 3;
-const dtexpval = .6;
+const dtexpval = 0.6;
 const dtMaxLvl = 3;
-const muupgval = .8;
+const muupgval = 0.8;
 const muupgMaxLvl = 2;
 const SOMaxLvl = constants.length - 1;
 
@@ -123,17 +123,17 @@ const materials = (lvl, type) => {
     lvl--;
     // returns gram/Liter which is equivalent to kilogram/meter^3
     const all = [
-        {'name': '\\text{hydrogen}', 'value': .0899, 'form': 'H'},
-        {'name': '\\text{helium}', 'value': .1785, 'form': 'He'},
-        {'name': '\\text{lithium}', 'value': .534, 'form': 'Li'},
+        {'name': '\\text{hydrogen}', 'value': 0.0899, 'form': 'H'},
+        {'name': '\\text{helium}', 'value': 0.1785, 'form': 'He'},
+        {'name': '\\text{lithium}', 'value': 0.534, 'form': 'Li'},
         {'name': '\\text{beryllium}', 'value': 1.848, 'form': 'Be'},
         {'name': '\\text{boron}', 'value': 2.34, 'form': 'B'},
         {'name': '\\text{carbon}', 'value': 2.26, 'form': 'C'},
         {'name': '\\text{nitrogen}', 'value': 1.2506, 'form': 'N'},
         {'name': '\\text{oxygen}', 'value': 1.429, 'form': 'O'},
         {'name': '\\text{fluoride}', 'value': 1.696, 'form': 'F'},
-        {'name': '\\text{neon}', 'value': .9, 'form': 'Ne'},
-        {'name': '\\text{sodium}', 'value': .971, 'form': 'Na'},
+        {'name': '\\text{neon}', 'value': 0.9, 'form': 'Ne'},
+        {'name': '\\text{sodium}', 'value': 0.971, 'form': 'Na'},
         {'name': '\\text{magnesium}', 'value': 1.738, 'form': 'Mg'},
         {'name': '\\text{aluminum}', 'value': 2.702, 'form': 'Al'},
         {'name': '\\text{silicon}', 'value': 2.33, 'form': 'Si'},
@@ -152,7 +152,7 @@ const materials = (lvl, type) => {
     }
     return all[lvl || 0][type];
 };
-const customC1costFn = (level, s=15) => Utils.getStepwisePowerSum(level, 1.5 + Math.pow(level, 1/(Math.log(1/(level+1))+level+1)), s, 0);
+const customC1costFn = (level, s=15) => Utils.getStepwisePowerSum(level, 1.5 + Math.pow(level, 1.00001/(Math.log(1/(level+1))+level+1)), s, 0);
 var init = () => {
     currency = theory.createCurrency(symbol = 'µ', latexSymbol='\\mu');
     currency2 = theory.createCurrency(symbol = 'ν', latexSymbol='\\nu');
@@ -175,7 +175,7 @@ var init = () => {
     // L
     {
         let getDesc = (level) => "L = " + getL(level).toString(0) + '\\, m';
-        L = theory.createUpgrade(1, currency, new ExponentialCost(1, Math.pow(9, .8)));
+        L = theory.createUpgrade(1, currency, new ExponentialCost(1, Math.pow(9, 0.8)));
         L.getDescription = (_) => Utils.getMath(getDesc(L.level));
         L.getInfo = (amount) => Utils.getMathTo(getDesc(L.level), getDesc(L.level + amount));
     }
@@ -194,7 +194,7 @@ var init = () => {
     // c2
     {
         let getDesc = (level) => "c_2 = " + getC2(level).toString(4);
-        c2 = theory.createUpgrade(3, currency3, new ExponentialCost(BigNumber.1.9, 1));
+        c2 = theory.createUpgrade(3, currency3, new ExponentialCost(BigNumber.2, 1));
         c2.maxLevel = 2000;
         c2.getDescription = (_) => Utils.getMath(getDesc(c2.level));
         c2.getInfo = (amount) => Utils.getMathTo(getDesc(c2.level), getDesc(c2.level + amount));
