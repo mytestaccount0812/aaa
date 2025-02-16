@@ -4,7 +4,7 @@ import { BigNumber } from "../../api/BigNumber";
 import { theory } from "../../api/Theory";
 import { Utils, log } from "../../api/Utils";
 
-var id = "Planetary Pendulum Periodicity";
+var id = "Planetary Pendulum Periodicity re";
 var name = "Planetary Pendulum Periodicity";
 var description = "This theory explores the changing of the frequency of a pendulum upon increasing the gravity it is subjected to by throwing lots of mass together. Furthermore, it explores the relationship between an ever-increasing mass, and one of the most physics-breaking objects, black holes.";
 var authors = "Warzen User";
@@ -175,14 +175,14 @@ var init = () => {
     // L
     {
         let getDesc = (level) => "L = " + getL(level).toString(0) + '\\, m';
-        L = theory.createUpgrade(1, currency, new ExponentialCost(1, Math.pow(10, .8)));
+        L = theory.createUpgrade(1, currency, new ExponentialCost(1, Math.pow(9, .8)));
         L.getDescription = (_) => Utils.getMath(getDesc(L.level));
         L.getInfo = (amount) => Utils.getMathTo(getDesc(L.level), getDesc(L.level + amount));
     }
     
     // density
     {
-        p1 = theory.createUpgrade(2, currency, new ExponentialCost(10/(Math.pow(2, 6.125)), 6.125));
+        p1 = theory.createUpgrade(2, currency, new ExponentialCost(10/(Math.pow(1.2, 6)), 6));
         let getDesc = (level) => `${getMaterialName(level)}=` + getP1(p1.level).toString(4) + '\\, \\frac{{kg}}{m^3}';
         let getInfo = (level) => `${getMaterialName(level, false)}=` + getP1(level).toString(4) + '\\, \\frac{{kg}}{m^3}';
         p1.getDescription = (_) => Utils.getMath(getDesc(p1.level));
@@ -194,7 +194,7 @@ var init = () => {
     // c2
     {
         let getDesc = (level) => "c_2 = " + getC2(level).toString(4);
-        c2 = theory.createUpgrade(3, currency3, new ExponentialCost(BigNumber.TWO, 1));
+        c2 = theory.createUpgrade(3, currency3, new ExponentialCost(BigNumber.1.9, 1));
         c2.maxLevel = 2000;
         c2.getDescription = (_) => Utils.getMath(getDesc(c2.level));
         c2.getInfo = (amount) => Utils.getMathTo(getDesc(c2.level), getDesc(c2.level + amount));
@@ -204,7 +204,7 @@ var init = () => {
     // w
     {
         let getDesc = (level) => "w = " + getw(level).toString(2);
-        w = theory.createUpgrade(4, currency3, new ExponentialCost(137, .707));
+        w = theory.createUpgrade(4, currency3, new ExponentialCost(136, .706));
         w.getDescription = (_) => Utils.getMath(getDesc(w.level));
         w.getInfo = (amount) => Utils.getMathTo(getDesc(w.level), getDesc(w.level + amount));
         w.isAvailable = false;
