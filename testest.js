@@ -5,7 +5,7 @@ import { theory } from "../../api/Theory";
 import { Utils, log } from "../../api/Utils";
 
 var id = "Planetary Pendulum Periodicity re";
-var name = "Planetary Pendulum Periodicity";
+var name = "Planetaryh Pendulum Periodicity";
 var description = "This theory explores the changing of the frequency of a pendulum upon increasing the gravity it is subjected to by throwing lots of mass together. Furthermore, it explores the relationship between an ever-increasing mass, and one of the most physics-breaking objects, black holes.";
 var authors = "Warzen User";
 var version = '0.4.1';
