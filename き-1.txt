@@ -263,7 +263,7 @@ var init = () => {
                 internalId: 2,
                 description: (_) => Utils.getMath("c_{2} = 2^{" + this.c2.upgrade.level + "}"),
                 info: (amount) => Utils.getMathTo("c_2 =" + this.getC2(this.c2.upgrade.level), "c_{2}=" + this.getC2(this.c2.upgrade.level + amount)),
-                costModel: new ExponentialCost(750, Math.log2(6)),
+                costModel: new ExponentialCost(7, Math.log2(3)),
                 laplaceUpgrade: false
             }
             this.c3 = {
