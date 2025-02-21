@@ -6,7 +6,7 @@ import { Utils } from "../api/Utils";
 import { log } from "../../../Downloads/TheorySDK.Win.1.4.29/api/Utils";
 
 var id = "LTBBMN";
-var name = "Laplace Transforms";
+var name = "Laplace Transformscvmmm";
 var tauExponent = 0.015;
 const basePubExp = 0.15
 var description = "A custom theory based on Laplace transforms.";
